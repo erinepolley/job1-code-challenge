@@ -8,11 +8,12 @@ function randomizeTest(test) {
     // This function is being called at the beginning of the renderTest function.
     // Your code to randomize questions and answers goes here
     // 
-    console.log("TEST QUESTIONS!", test.questions, "TEST CHOICES", test.choices)
-    console.log("TEST ANSWERS", test.answers)
-    console.log("TEST ANSWERS INNER ARRAYS", test.choices[0][1])
+    console.log("INITIAL TEST QUESTIONS!", test.questions, "TEST CHOICES", test.choices)
+    console.log("INITIAL TEST ANSWERS", test.answers)
+    console.log("INITIAL TEST ANSWERS INNER ARRAYS", test.choices[0][1])
     let currentIndex = test.questions.length;
-    // let innerLoopIndex = test.answers.length;
+    let innerLoopIndex = test.answers.length;
+
 
     while (currentIndex > 0) {
 
@@ -33,33 +34,33 @@ function randomizeTest(test) {
         test.questions[randomIndex] = questionTempValue;
         // console.log("TEST QUESTIONS RANDOM INDEX 2ND",test.questions[randomIndex])    
         // console.log("SECOND TEMP VALUE", temporaryValue) 
-        let answerTempValue = test.answers[currentIndex];
-        test.answers[currentIndex] = test.answers[randomIndex];
-        test.answers[randomIndex] = answerTempValue;
+        // let answerTempValue = test.answers[currentIndex];
+        // test.answers[currentIndex] = test.answers[randomIndex];
+        // test.answers[randomIndex] = answerTempValue;
 
-        let choicesTempValue = test.choices[currentIndex];
-        test.choices[currentIndex] = test.choices[randomIndex];
-        test.choices[randomIndex] = choicesTempValue;
+        // let choicesTempValue = test.choices[currentIndex];
+        // test.choices[currentIndex] = test.choices[randomIndex];
+        // test.choices[randomIndex] = choicesTempValue;
 
         console.log("RANDOM QUESTIONS?", test.questions);
         console.log("RANDOM TEST ANSWERS?", test.answers);
         console.log("RANDOM CHOICES?", test.choices);
 
-        // while (innerLoopIndex > 0) {
-        //     let innerRandomIndex = Math.floor(Math.random() * innerLoopIndex);
-        //     console.log("RANDO INDEX", innerRandomIndex)
-        //     console.log("innerLoop INDEX", innerLoopIndex)
+        while (innerLoopIndex < 0) {
+            let innerRandomIndex = Math.floor(Math.random() * innerLoopIndex);
+            console.log("RANDO INDEX", innerRandomIndex)
+            console.log("innerLoop INDEX", innerLoopIndex)
 
-        //     innerLoopIndex--;
+            innerLoopIndex--;
 
-        //     let answerTempValue = test.answers[currentIndex][innerLoopIndex];
-        //     test.answers[currentIndex][innerLoopIndex] = test.answers[randomIndex][innerRandomIndex];
-        //     test.answers[fandomIndex][innerRandomIndex] = answerTempValue;
+            let answerTempValue = test.answers[currentIndex][innerLoopIndex];
+            test.answers[currentIndex][innerLoopIndex] = test.answers[randomIndex][innerRandomIndex];
+            test.answers[randomIndex][innerRandomIndex] = answerTempValue;
 
-        //     let choicesTempValue = test.choices[currentIndex][innerLoopIndex];
-        //     test.choices[currentIndex][innerLoopIndex] = test.choices[randomIndex][innerRandomIndex];
-        //     test.choices[randomIndex][innerRandomIndex] = choicesTempValue;
-        // }
+            let choicesTempValue = test.choices[currentIndex][innerLoopIndex];
+            test.choices[currentIndex][innerLoopIndex] = test.choices[randomIndex][innerRandomIndex];
+            test.choices[randomIndex][innerRandomIndex] = choicesTempValue;
+        }
         return test
         // .questions, test.choices, test.answers
 
